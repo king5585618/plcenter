@@ -19,6 +19,11 @@ public class LoginController {
         return new ModelAndView("/login");
     }
 
+    @RequestMapping("/index")
+    public ModelAndView index() {
+        return new ModelAndView("/index");
+    }
+
     @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView doLogin(String username, String password) {

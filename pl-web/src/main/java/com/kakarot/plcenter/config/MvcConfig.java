@@ -55,6 +55,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         viewResolver.setPrefix("");
         viewResolver.setSuffix(".vm");
         viewResolver.setContentType("text/html;charset=UTF-8");
+        viewResolver.setRequestContextAttribute("rc");
         return viewResolver;
     }
 }
