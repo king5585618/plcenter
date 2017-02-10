@@ -4,6 +4,7 @@ import com.kakarot.plcenter.config.CoreConfig;
 import com.kakarot.plcenter.config.DatasourceConfig;
 import com.kakarot.plcenter.config.MvcConfig;
 import com.kakarot.plcenter.config.ShiroConfig;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -35,7 +36,9 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
 
     @Override
     protected Filter[] getServletFilters() {
+        CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
+        encodingFilter.setEncoding("UTF-8");
         DelegatingFilterProxy delegatingFilterProxy = new DelegatingFilterProxy("shiroFilter");
-        return new Filter[]{delegatingFilterProxy};
+        return new Filter[]{encodingFilter, delegatingFilterProxy};
     }
 }

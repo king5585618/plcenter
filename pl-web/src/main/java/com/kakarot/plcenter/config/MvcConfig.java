@@ -7,6 +7,8 @@ import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
 import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
 
+import java.util.Properties;
+
 /**
  * Created by jinzj on 2017/1/18.
  */
@@ -39,6 +41,10 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public VelocityConfigurer velocityConfigurer() {
         VelocityConfigurer configurer = new VelocityConfigurer();
         configurer.setResourceLoaderPath("/");
+        Properties properties = new Properties();
+        properties.put("input.encoding","UTF-8");
+        properties.put("output.encoding","UTF-8");
+        configurer.setVelocityProperties(properties);
         return configurer;
     }
 
@@ -48,6 +54,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         viewResolver.setCache(true);
         viewResolver.setPrefix("");
         viewResolver.setSuffix(".vm");
+        viewResolver.setContentType("text/html;charset=UTF-8");
         return viewResolver;
     }
 }
