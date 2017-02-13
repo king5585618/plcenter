@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.springframework.data.rest.core.annotation.Description;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by jinzj on 2017/1/20.
@@ -33,10 +32,10 @@ public class User {
     @Description("昵称")
     private String nickName;
 
-    @CollectionTable(name = "SSO_User_AuthorityList")
-    @ElementCollection
-    @Column(length = 50)
-    private Set<String> authorityList;
+//    @CollectionTable(name = "SSO_User_AuthorityList")
+//    @ElementCollection
+//    @Column(length = 50)
+//    private Set<String> authorityList;
 
     @Override
     public boolean equals(Object o) {
@@ -49,8 +48,8 @@ public class User {
         if (!username.equals(user.username)) return false;
         if (!password.equals(user.password)) return false;
         if (nickName != null ? !nickName.equals(user.nickName) : user.nickName != null) return false;
-        return authorityList != null ? authorityList.equals(user.authorityList) : user.authorityList == null;
-
+//        return authorityList != null ? authorityList.equals(user.authorityList) : user.authorityList == null;
+        return true;
     }
 
     @Override
@@ -59,7 +58,7 @@ public class User {
         result = 31 * result + username.hashCode();
         result = 31 * result + password.hashCode();
         result = 31 * result + (nickName != null ? nickName.hashCode() : 0);
-        result = 31 * result + (authorityList != null ? authorityList.hashCode() : 0);
+//        result = 31 * result + (authorityList != null ? authorityList.hashCode() : 0);
         return result;
     }
 }

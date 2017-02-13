@@ -1,6 +1,5 @@
 package com.kakarot.plcenter.auth;
 
-import com.kakarot.plcenter.entity.User;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -14,6 +13,9 @@ import org.apache.shiro.subject.PrincipalCollection;
  */
 public class PlRealm extends AuthorizingRealm {
 
+//    @Autowired
+//    private UserDao userDao;
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         return null;
@@ -22,9 +24,7 @@ public class PlRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken usernamePasswordToken=(UsernamePasswordToken) token;
-        User user = new User();
-        user.setUsername(usernamePasswordToken.getUsername());
-        user.setPassword(String.valueOf(usernamePasswordToken.getPassword()));
+//        User user = userDao.findOneByUsername(usernamePasswordToken.getUsername());
 
         return null;
     }
