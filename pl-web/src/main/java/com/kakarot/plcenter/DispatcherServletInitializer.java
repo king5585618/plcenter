@@ -1,7 +1,6 @@
 package com.kakarot.plcenter;
 
 import com.kakarot.plcenter.config.CoreConfig;
-import com.kakarot.plcenter.config.DatasourceConfig;
 import com.kakarot.plcenter.config.MvcConfig;
 import com.kakarot.plcenter.config.ShiroConfig;
 import org.springframework.web.filter.CharacterEncodingFilter;

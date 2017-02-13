@@ -1,16 +1,19 @@
-package com.kakarot.plcenter.config;
+package com.kakarot.plcenter;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.kakarot.plcenter.util.PropertyUtil;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import java.util.Properties;
 
 /**
- * Created by jinzj on 2017/2/8.
+ * Created by jinzj on 2017/2/13.
  */
 @Configuration
 @Profile("!production")
@@ -23,5 +26,16 @@ public class DatasourceConfig {
         source.setConnectProperties(properties);
         return source;
     }
+
+    @Bean(name = "sqlSessionFactoryBean")
+    public SqlSessionFactoryBean getSqlSessionFactoryBean() throws Exception {
+        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+        bean.setDataSource(dataSource());
+        bean.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
+        return bean;
+    }
+
 
 }
