@@ -10,6 +10,7 @@
         <module>pl-service</module>
         <module>pl-model</module>
         <module>pl-util</module>
+        <module>nio</module>
     </modules>
     <packaging>pom</packaging>
 
