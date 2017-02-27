@@ -37,15 +37,32 @@ public class ChannelTest {
         FileChannel inChannel = rf.getChannel();
         ByteBuffer buf = ByteBuffer.allocate(48);
         int bytesRead = inChannel.read(buf);
-        while (bytesRead!=-1){
+        while (bytesRead != -1) {
             buf.flip();
-            while (buf.hasRemaining()){
+            while (buf.hasRemaining()) {
                 System.out.println((char) buf.get());
             }
             buf.clear();
             bytesRead = inChannel.read(buf);
         }
         System.out.println(bytesRead);
+        rf.close();
+    }
+
+    @Test
+    public void write() throws Exception {
+//        Resource resource = new ClassPathResource("write-nio.txt");
+//        RandomAccessFile rf = new RandomAccessFile(resource.getFile(), "rw");
+        RandomAccessFile rf = new RandomAccessFile("D:/test.txt", "rw");
+        String str = "New String to write to file..." + System.currentTimeMillis();
+        FileChannel inChannel = rf.getChannel();
+        ByteBuffer buf = ByteBuffer.allocate(1024);
+        buf.clear();
+        buf.put(str.getBytes("UTF-8"));
+        buf.flip();
+        while (buf.hasRemaining()) {
+            inChannel.write(buf);
+        }
         rf.close();
     }
 }
