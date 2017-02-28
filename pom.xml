@@ -11,6 +11,7 @@
         <module>pl-model</module>
         <module>pl-util</module>
         <module>nio</module>
+        <module>netty</module>
     </modules>
     <packaging>pom</packaging>
 
