@@ -7,5 +7,6 @@ import com.kakarot.plcenter.entity.User;
  */
 public interface UserDao {
 
-    User findOneByUsername(String username);
+    //    User findOneByUsername(String username);
+    User selectByPrimaryKey(Long id);
 }

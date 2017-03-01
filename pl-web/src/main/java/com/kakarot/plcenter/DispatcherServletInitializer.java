@@ -2,14 +2,11 @@ package com.kakarot.plcenter;
 
 import com.kakarot.plcenter.config.CoreConfig;
 import com.kakarot.plcenter.config.MvcConfig;
-import com.kakarot.plcenter.config.ShiroConfig;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.web.filter.CharacterEncodingFilter;
-import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.Filter;
+//import com.kakarot.plcenter.config.ShiroConfig;
 
 /**
  * Created by jinzj on 2017/2/4.
@@ -24,7 +21,7 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
                 CoreConfig.class,
                 MvcConfig.class,
                 DatasourceConfig.class,
-                ShiroConfig.class
+//                ShiroConfig.class
         };
     }
 
@@ -38,11 +35,11 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
         return new String[]{"/"};
     }
 
-    @Override
-    protected Filter[] getServletFilters() {
-        CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
-        encodingFilter.setEncoding("UTF-8");
-        DelegatingFilterProxy delegatingFilterProxy = new DelegatingFilterProxy("shiroFilter");
-        return new Filter[]{encodingFilter, delegatingFilterProxy};
-    }
+//    @Override
+//    protected Filter[] getServletFilters() {
+//        CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
+//        encodingFilter.setEncoding("UTF-8");
+//        DelegatingFilterProxy delegatingFilterProxy = new DelegatingFilterProxy("shiroFilter");
+//        return new Filter[]{encodingFilter, delegatingFilterProxy};
+//    }
 }
