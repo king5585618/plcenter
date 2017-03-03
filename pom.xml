@@ -12,6 +12,7 @@
         <module>pl-util</module>
         <module>nio</module>
         <module>netty</module>
+        <module>thread</module>
     </modules>
     <packaging>pom</packaging>
 
