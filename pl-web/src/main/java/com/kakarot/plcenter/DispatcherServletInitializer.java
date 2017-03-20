@@ -41,5 +41,6 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
 //        encodingFilter.setEncoding("UTF-8");
 //        DelegatingFilterProxy delegatingFilterProxy = new DelegatingFilterProxy("shiroFilter");
 //        return new Filter[]{encodingFilter, delegatingFilterProxy};
+//        return new Filter[]{};
 //    }
 }

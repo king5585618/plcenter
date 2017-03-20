@@ -16,6 +16,7 @@
         $.ajax({
             type: "post",
             url: "$!rc.contextPath/doLogin",
+            contentType:'application/json',
             data: {"username": $("#username").val(), "password": $("#password").val()},
             success: function (data) {
                 window.location = "/index";

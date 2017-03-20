@@ -1,5 +1,6 @@
 package com.kakarot.plcenter.config;
 
+import com.kakarot.plcenter.filter.XssHttpServletRequestFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -51,11 +52,26 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Bean
     public VelocityViewResolver viewResolver() {
         VelocityViewResolver viewResolver = new VelocityViewResolver();
-        viewResolver.setCache(true);
+        viewResolver.setCache(false);
         viewResolver.setPrefix("");
         viewResolver.setSuffix(".vm");
         viewResolver.setContentType("text/html;charset=UTF-8");
         viewResolver.setRequestContextAttribute("rc");
         return viewResolver;
+    }
+
+//    @Bean
+//    public XssFilter xssFilter() {
+//        return new XssFilter();
+//    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(xssHttpServletRequestFilter());
+    }
+
+    @Bean
+    public XssHttpServletRequestFilter xssHttpServletRequestFilter(){
+        return new XssHttpServletRequestFilter();
     }
 }
