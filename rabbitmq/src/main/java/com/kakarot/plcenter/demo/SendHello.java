@@ -7,7 +7,7 @@ import com.rabbitmq.client.ConnectionFactory;
 /**
  * Created by jinzj on 2017/3/30.
  */
-public class Send {
+public class SendHello {
     //队列名称
     private final static String QUEUE_NAME = "hello";
 

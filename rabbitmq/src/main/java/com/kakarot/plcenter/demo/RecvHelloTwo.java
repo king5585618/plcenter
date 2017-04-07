@@ -6,9 +6,9 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 
 /**
- * Created by jinzj on 2017/3/30.
+ * Created by jinzj on 2017/4/7.
  */
-public class Recv {
+public class RecvHelloTwo {
 
     //队列名称
     private final static String QUEUE_NAME = "hello";
