@@ -7,6 +7,9 @@ import com.rabbitmq.client.QueueingConsumer;
 
 /**
  * Created by jinzj on 2017/4/7.
+ * #默认情况RabbirMQ将message以round-robin方式发送给下一个consumer
+ * #每个consumer接收到的平均message量是一样的
+ * #可以同时运行两个或三个该程序进行测试
  */
 public class WorkTaskTwo {
 
