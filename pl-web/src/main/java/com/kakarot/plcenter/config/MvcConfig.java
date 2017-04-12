@@ -16,6 +16,7 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @EnableScheduling
+//@ImportResource("classpath:test.properties")
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
@@ -59,6 +60,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         viewResolver.setRequestContextAttribute("rc");
         return viewResolver;
     }
+
+//    PreferencesPlaceholderConfigurer
 
 //    @Bean
 //    public XssFilter xssFilter() {

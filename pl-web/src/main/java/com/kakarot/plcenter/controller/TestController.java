@@ -10,8 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TestController {
 
+//    @Value("${pl.test}")
+//    private String value;
+
     @RequestMapping("/getTest")
     public ModelAndView getTest() {
+//        System.out.println(value);
         return new ModelAndView("/test").addObject("str","&lt;script&gt;alert(&quot;1&quot;);&lt;/script&gt;");
     }
 }

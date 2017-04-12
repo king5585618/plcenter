@@ -6,6 +6,7 @@ import com.rabbitmq.client.ConnectionFactory;
 
 /**
  * Created by jinzj on 2017/4/10.
+ * fanout
  */
 public class EmitLog {
     private static final String EXCHANGE_NAME = "logs";

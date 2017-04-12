@@ -7,6 +7,7 @@ import com.rabbitmq.client.QueueingConsumer;
 
 /**
  * Created by jinzj on 2017/4/10.
+ * fanout
  */
 public class ReceiveLogs {
     private static final String EXCHANGE_NAME = "logs";
