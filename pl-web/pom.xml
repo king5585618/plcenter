@@ -112,6 +112,11 @@
             <!--<artifactId>shiro-ehcache</artifactId>-->
             <!--<version>${shiro.version}</version>-->
         <!--</dependency>-->
+        <dependency>
+            <groupId>com.kakarot.plcenter</groupId>
+            <artifactId>elasticJob</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>pl-web</finalName>
