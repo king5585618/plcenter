@@ -1,6 +1,7 @@
 package com.kakarot.plcenter.config;
 
 import com.kakarot.plcenter.filter.XssHttpServletRequestFilter;
+import com.kakarot.plcenter.system.SystemManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -61,7 +62,10 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
-//    PreferencesPlaceholderConfigurer
+    @Bean
+    public SystemManager getSystemManager(){
+        return new SystemManager();
+    }
 
 //    @Bean
 //    public XssFilter xssFilter() {
