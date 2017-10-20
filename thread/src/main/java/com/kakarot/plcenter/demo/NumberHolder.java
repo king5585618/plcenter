@@ -53,6 +53,7 @@ public class NumberHolder {
 
     public static void main(String[] args)
     {
+
         NumberHolder numberHolder = new NumberHolder();
 
         Thread t1 = new IncreaseThread(numberHolder);
