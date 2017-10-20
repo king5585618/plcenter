@@ -18,7 +18,7 @@ public class HelloThreadTest {
 }
 
 class HelloThread implements Runnable {
-    int i;
+    int i=0;
 
     @Override
     public void run() {
@@ -32,7 +32,7 @@ class HelloThread implements Runnable {
                 e.printStackTrace();
             }
 
-            if (50 == i) {
+            if (5000 == i) {
                 break;
             }
         }

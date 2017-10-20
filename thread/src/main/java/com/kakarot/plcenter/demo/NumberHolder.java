@@ -8,7 +8,7 @@ public class NumberHolder {
 
     public synchronized void increase()
     {
-        while (0 != number)
+        if (0 != number)
         {
             try
             {

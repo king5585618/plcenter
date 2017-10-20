@@ -22,7 +22,7 @@ class Bank
 {
     private int money = 1000;
 
-    public int getMoney(int number)
+    public synchronized int getMoney(int number)
     {
         if (number < 0)
         {
