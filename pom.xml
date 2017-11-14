@@ -15,6 +15,7 @@
         <module>thread</module>
         <module>rabbitmq</module>
         <module>elasticJob</module>
+        <module>pl-note</module>
     </modules>
     <packaging>pom</packaging>
 
