@@ -29,4 +29,11 @@ public class UserDemoTest {
             System.out.println(f.get(demo));
         }
     }
+
+    @Test
+    public void verifyEqual() throws Exception {
+        Object o = null;
+        UserDemo demo = (UserDemo)o;
+        System.out.println(demo);
+    }
 }
