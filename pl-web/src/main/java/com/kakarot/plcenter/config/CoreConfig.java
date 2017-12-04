@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @SuppressWarnings("SpellCheckingInspection")
 @Configuration
-@ComponentScan("com.kakarot.plcenter.controller")
+@ComponentScan("com.kakarot.plcenter")
 public class CoreConfig {
 
 }

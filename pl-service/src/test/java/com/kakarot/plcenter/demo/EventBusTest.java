@@ -4,7 +4,6 @@ import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.EventBus;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.concurrent.Executors;
 
 /**
@@ -27,7 +26,6 @@ public class EventBusTest {
         for(int i=0;i<1000;i++){
             eventBus.post(i+"  test");
         }
-        HashMap
     }
 
 
