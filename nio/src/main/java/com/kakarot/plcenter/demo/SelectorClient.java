@@ -51,7 +51,7 @@ public class SelectorClient {
     }
 
     public static void main(String[] args) throws IOException {
-        SelectorClient client = new SelectorClient("localhost",6666);
+        SelectorClient client = new SelectorClient("localhost",6667);
         client.writeDataToServer("我是一个客户端");
     }
 }

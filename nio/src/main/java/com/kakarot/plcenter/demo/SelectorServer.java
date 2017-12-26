@@ -17,7 +17,7 @@ import java.util.Iterator;
  */
 public class SelectorServer {
     // 服务器监听的端口
-    private static final int PORT = 6666;
+    private static final int PORT = 6667;
     // 处理数据的缓冲区
     private ByteBuffer buffer = ByteBuffer.allocate(1024);
     // 欢迎消息

@@ -17,6 +17,7 @@
         <module>elasticJob</module>
         <module>pl-note</module>
         <module>task</module>
+        <module>aop</module>
     </modules>
     <packaging>pom</packaging>
 
