@@ -9,10 +9,15 @@
                         http://www.dangdang.com/schema/ddframe/job/job.xsd">
 
     <reg:zookeeper id="regCenter"
-                   namespace="dd-job" server-lists="localhost:2181"/>
+                   namespace="test" serverLists="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183" baseSleepTimeMilliseconds="1000" maxSleepTimeMilliseconds="3000" maxRetries="3"/>
 
     <job:bean id="testJob"
               class="com.kakarot.plcenter.job.TestJob"
-              regCenter="regCenter" cron="0/10 * * * * ?"
+              regCenter="regCenter" cron="0/10 * * * * ?" description="test test"
+              shardingTotalCount="3" shardingItemParameters="0=A,1=B,2=C"/>
+
+    <job:bean id="testJob2"
+              class="com.kakarot.plcenter.job.TestJob2"
+              regCenter="regCenter" cron="0/10 * * * * ?" description="test test"
               shardingTotalCount="3" shardingItemParameters="0=A,1=B,2=C"/>
 </beans>

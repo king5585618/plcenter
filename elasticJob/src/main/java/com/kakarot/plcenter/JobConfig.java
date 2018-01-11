@@ -6,6 +6,6 @@ package com.kakarot.plcenter;
  */
 //@Configuration
 //@ComponentScan(value = "com.kakarot.plcenter.job")
-//@ImportResource(value = {"classpath:job-service.xml"})
+////@ImportResource(value = {"classpath:job-service.xml"})
 //public class JobConfig {
 //}
