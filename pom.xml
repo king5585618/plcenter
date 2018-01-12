@@ -18,6 +18,7 @@
         <module>pl-note</module>
         <module>task</module>
         <module>aop</module>
+        <module>elasticJob2</module>
     </modules>
     <packaging>pom</packaging>
 

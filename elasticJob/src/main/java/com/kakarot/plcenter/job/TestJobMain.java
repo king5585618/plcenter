@@ -12,7 +12,8 @@ import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
  * @author jinzj
  * @since v4.0.0
  */
-public class TestJobMain {public static void main(String[] args) {
+public class TestJobMain {
+    public static void main(String[] args) {
     new JobScheduler(createRegistryCenter(), createJobConfiguration("A")).init();
 }
     private static CoordinatorRegistryCenter createRegistryCenter() {

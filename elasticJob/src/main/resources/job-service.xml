@@ -8,8 +8,8 @@
                         http://www.dangdang.com/schema/ddframe/job
                         http://www.dangdang.com/schema/ddframe/job/job.xsd">
 
-    <reg:zookeeper id="regCenter"
-                   namespace="test" serverLists="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183" baseSleepTimeMilliseconds="1000" maxSleepTimeMilliseconds="3000" maxRetries="3"/>
+    <!--<reg:zookeeper id="regCenter"-->
+                   <!--namespace="test" serverLists="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183" baseSleepTimeMilliseconds="1000" maxSleepTimeMilliseconds="3000" maxRetries="3"/>-->
 
     <job:bean id="testJob"
               class="com.kakarot.plcenter.job.TestJob"
