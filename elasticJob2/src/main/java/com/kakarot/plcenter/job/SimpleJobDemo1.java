@@ -15,6 +15,6 @@ public class SimpleJobDemo1 implements SimpleJob {
 
     @Override
     public void execute(ShardingContext shardingContext) {
-        System.out.println("1");
+//        System.out.println("1");
     }
 }

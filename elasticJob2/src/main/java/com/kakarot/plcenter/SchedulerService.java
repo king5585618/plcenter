@@ -1,7 +1,9 @@
 package com.kakarot.plcenter;
 
+import com.dangdang.ddframe.job.api.dataflow.DataflowJob;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
+import com.dangdang.ddframe.job.config.dataflow.DataflowJobConfiguration;
 import com.dangdang.ddframe.job.config.simple.SimpleJobConfiguration;
 import com.dangdang.ddframe.job.lite.config.LiteJobConfiguration;
 import com.dangdang.ddframe.job.lite.spring.api.SpringJobScheduler;
@@ -37,10 +39,10 @@ public class SchedulerService implements BeanPostProcessor,InitializingBean {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if(!enableJob){
+            return bean;
+        }
         if(bean instanceof SimpleJob){
-            if(!enableJob){
-                return bean;
-            }
             SimpleJob job = (SimpleJob) bean;
             SimpleScheduled annotation = job.getClass().getAnnotation(SimpleScheduled.class);
             if (annotation == null || null==annotation.cron())
@@ -50,6 +52,21 @@ public class SchedulerService implements BeanPostProcessor,InitializingBean {
             SimpleJobConfiguration simpleJobConfig = new SimpleJobConfiguration(simpleCoreConfig, job.getClass().getCanonicalName());
             LiteJobConfiguration simpleJobRootConfig = LiteJobConfiguration.newBuilder(simpleJobConfig).build();
             SpringJobScheduler springJobScheduler = new SpringJobScheduler(job,registryCenter,simpleJobRootConfig);
+            springJobScheduler.init();
+        }else if(bean instanceof DataflowJob) {
+            DataflowJob job = (DataflowJob) bean;
+            SimpleScheduled annotation = job.getClass().getAnnotation(SimpleScheduled.class);
+            if (annotation == null || null==annotation.cron())
+                throw new NullPointerException("注解配置不正确");
+            // 定义作业核心配置
+            JobCoreConfiguration dataflowCoreConfig = JobCoreConfiguration.newBuilder(beanName, annotation.cron(), 1)
+                    .description(annotation.description()).build();
+            // 定义DATAFLOW类型配置
+            DataflowJobConfiguration dataflowJobConfig = new DataflowJobConfiguration(dataflowCoreConfig,
+                    job.getClass().getCanonicalName(), true);
+            // 定义Lite作业根配置
+            LiteJobConfiguration dataflowJobRootConfig = LiteJobConfiguration.newBuilder(dataflowJobConfig).build();
+            SpringJobScheduler springJobScheduler = new SpringJobScheduler(job,registryCenter,dataflowJobRootConfig);
             springJobScheduler.init();
         }
         return bean;
