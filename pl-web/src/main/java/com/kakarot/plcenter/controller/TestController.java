@@ -1,6 +1,7 @@
 package com.kakarot.plcenter.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.kakarot.plcenter.util.IPAdressUtils;
 import com.kakarot.plcenter.vo.TestVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +28,7 @@ public class TestController {
 
     @RequestMapping("/postIndex")
     public String postIndex(){
+        System.out.println(IPAdressUtils.getIp());
         return "/post";
     }
 

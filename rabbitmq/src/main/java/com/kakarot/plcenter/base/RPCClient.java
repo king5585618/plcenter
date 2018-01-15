@@ -54,21 +54,23 @@ public class RPCClient {
     }
 
     public static void main(String[] argv) {
-        RPCClient fibonacciRpc = null;
-        String response = null;
-        try {
-            fibonacciRpc = new RPCClient();
+        for(int i=0;i<1000;i++){
+            RPCClient fibonacciRpc = null;
+            String response;
+            try {
+                fibonacciRpc = new RPCClient();
 
-            System.out.println("RPCClient [x] Requesting fib(30)");
-            response = fibonacciRpc.call("30");
-            System.out.println("RPCClient [.] Got '" + response + "'");
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (fibonacciRpc != null) {
-                try {
-                    fibonacciRpc.close();
-                } catch (Exception ignore) {
+                System.out.println("RPCClient [x] Requesting fib("+i+")");
+                response = fibonacciRpc.call(i+"");
+                System.out.println("RPCClient [.] Got '" + response + "'");
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (fibonacciRpc != null) {
+                    try {
+                        fibonacciRpc.close();
+                    } catch (Exception ignore) {
+                    }
                 }
             }
         }

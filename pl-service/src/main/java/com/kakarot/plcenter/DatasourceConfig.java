@@ -25,7 +25,7 @@ public class DatasourceConfig {
 
 //    private static final Log log = LogFactory.getLog(DatasourceConfig.class);
 
-    @Bean
+    @Bean(name = "dataSource")
     public DruidDataSource dataSource() throws Exception {
         Properties properties = PropertyUtil.getDatasourceProperties("datasource.properties");
         DruidDataSource source = (DruidDataSource) DruidDataSourceFactory.createDataSource(properties);

@@ -20,8 +20,10 @@ public class Producer1 {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(HELLO, false, false, false, null);
-        String message = "Hello, World";
-        channel.basicPublish("",HELLO,null,message.getBytes("UTF-8"));
+        for(int i=0;i<1000;i++){
+            String message = "Hello, World "+i;
+            channel.basicPublish("",HELLO,null,message.getBytes("UTF-8"));
+        }
         channel.close();
         connection.close();
     }

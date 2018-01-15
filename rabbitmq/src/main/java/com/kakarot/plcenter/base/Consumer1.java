@@ -25,9 +25,10 @@ public class Consumer1 {
                                        byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
                 System.out.println("C [x] Received '" + message + "'");
+                channel.basicAck(envelope.getDeliveryTag(), false);
             }
         };
-        channel.basicConsume(HELLO,true,consumer);
+        channel.basicConsume(HELLO,false,consumer);
 
     }
 }
