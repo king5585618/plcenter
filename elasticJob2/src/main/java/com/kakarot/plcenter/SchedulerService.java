@@ -47,7 +47,7 @@ public class SchedulerService implements BeanPostProcessor,InitializingBean {
             SimpleScheduled annotation = job.getClass().getAnnotation(SimpleScheduled.class);
             if (annotation == null || null==annotation.cron())
                 throw new NullPointerException("注解配置不正确");
-            JobCoreConfiguration simpleCoreConfig = JobCoreConfiguration.newBuilder(beanName, annotation.cron(), 1)
+            JobCoreConfiguration simpleCoreConfig = JobCoreConfiguration.newBuilder(beanName, annotation.cron(), 2)
                     .description(annotation.description()).build();
             SimpleJobConfiguration simpleJobConfig = new SimpleJobConfiguration(simpleCoreConfig, job.getClass().getCanonicalName());
             LiteJobConfiguration simpleJobRootConfig = LiteJobConfiguration.newBuilder(simpleJobConfig).build();
@@ -59,7 +59,7 @@ public class SchedulerService implements BeanPostProcessor,InitializingBean {
             if (annotation == null || null==annotation.cron())
                 throw new NullPointerException("注解配置不正确");
             // 定义作业核心配置
-            JobCoreConfiguration dataflowCoreConfig = JobCoreConfiguration.newBuilder(beanName, annotation.cron(), 1)
+            JobCoreConfiguration dataflowCoreConfig = JobCoreConfiguration.newBuilder(beanName, annotation.cron(), 1).shardingItemParameters("0=0,1=1")
                     .description(annotation.description()).build();
             // 定义DATAFLOW类型配置
             DataflowJobConfiguration dataflowJobConfig = new DataflowJobConfiguration(dataflowCoreConfig,

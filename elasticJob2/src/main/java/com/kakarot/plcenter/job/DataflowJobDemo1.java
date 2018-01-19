@@ -20,7 +20,8 @@ public class DataflowJobDemo1 implements DataflowJob<DataflowDemo> {
         List<DataflowDemo> list = new ArrayList<>();
         list.add(new DataflowDemo("1"));
         list.add(new DataflowDemo("2"));
-        return list;
+//        return list;
+        return null;
     }
 
     @Override
