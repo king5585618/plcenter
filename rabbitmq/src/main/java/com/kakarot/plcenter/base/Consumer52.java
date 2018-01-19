@@ -3,14 +3,12 @@ package com.kakarot.plcenter.base;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author jinzj
  * @since v4.0.0
  */
-public class Consumer51 {
+public class Consumer52 {
 
     private final static String EXCHANGE_NAME="test_exchange_direct2";
 
@@ -18,14 +16,8 @@ public class Consumer51 {
 
     public static void main(String[] args) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-//        factory.setHost("localhost");
-        factory.setUsername("jin");
-        factory.setPassword("jin");
-        Address address = new Address("192.168.23.132",5672);
-        List<Address> addresses = new ArrayList<>();
-        addresses.add(address);
-        Connection connection = factory.newConnection(addresses);
-//        Connection connection = factory.newConnection();
+        factory.setHost("localhost");
+        Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         //声明队列
         channel.queueDeclare(QUEUE_NAME,false,false,false,null);
@@ -41,9 +33,9 @@ public class Consumer51 {
                 try {
                     String message = new String(body, "UTF-8");
 
-                    System.out.println("Worker1 [x] Received '" + message + "'");
+                    System.out.println("Worker2 [x] Received '" + message + "'");
                 } finally {
-                    System.out.println("Worker1 [x] Done");
+                    System.out.println("Worker2 [x] Done");
                     // 消息处理完成确认
                     channel.basicAck(envelope.getDeliveryTag(), false);
                 }

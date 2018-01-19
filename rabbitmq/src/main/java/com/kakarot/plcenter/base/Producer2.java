@@ -6,6 +6,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.MessageProperties;
 
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 /**
  * @author jinzj
@@ -15,7 +16,7 @@ public class Producer2 {
 
     private static final String TASK_QUEUE_NAME = "task_queue";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = factory.newConnection();

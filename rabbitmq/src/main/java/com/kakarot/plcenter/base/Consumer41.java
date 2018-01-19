@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Consumer41 {
     private static final String EXCHANGE_NAME = "topic_logs";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = factory.newConnection();

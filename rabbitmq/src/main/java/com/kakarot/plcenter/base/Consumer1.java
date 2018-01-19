@@ -12,7 +12,7 @@ public class Consumer1 {
 
     private static final String HELLO = "hello";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = factory.newConnection();
