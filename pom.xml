@@ -19,6 +19,7 @@
         <module>task</module>
         <module>aop</module>
         <module>elasticJob2</module>
+        <module>redis</module>
     </modules>
     <packaging>pom</packaging>
 
