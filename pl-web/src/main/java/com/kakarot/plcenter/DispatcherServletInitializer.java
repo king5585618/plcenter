@@ -22,6 +22,7 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
                 MvcConfig.class,
                 DatasourceConfig.class,
                 JobConfig2.class,
+                DubboConfig.class,
 //                TaskConfig.class
 //                JobConfig.class
 //                ShiroConfig.class
