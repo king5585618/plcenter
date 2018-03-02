@@ -69,7 +69,7 @@ public class SemaphoreThread {
 // 建立一个缓存线程池
         ExecutorService es = Executors.newCachedThreadPool();
 // 建立20个线程
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
 // 执行一个线程
             es.submit(new Thread(new NewThread(bank, semaphore)));
         }
