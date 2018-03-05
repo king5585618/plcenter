@@ -24,6 +24,7 @@
         <module>pl-service-dubbo</module>
         <module>proxy</module>
         <module>pattern</module>
+        <module>pl-core</module>
     </modules>
     <packaging>pom</packaging>
 
