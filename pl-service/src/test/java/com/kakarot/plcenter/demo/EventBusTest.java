@@ -28,6 +28,17 @@ public class EventBusTest {
         }
     }
 
+    @Test
+    public void testAysncEventBus2() {
+        AsyncEventBus eventBus = new AsyncEventBus(Executors.newFixedThreadPool(3));
+        eventBus.register(new EventTest());
+        eventBus.post(100+"  test");
+        Demo2 demo2 = new Demo2();
+        demo2.setId("111");
+        demo2.setUserName("22222");
+        eventBus.post(demo2);
+    }
+
 
 
 
