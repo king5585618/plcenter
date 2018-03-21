@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
+ * jdk动态代理
  * @author jinzj
  * @since v4.0.0
  */

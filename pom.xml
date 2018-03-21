@@ -25,6 +25,7 @@
         <module>proxy</module>
         <module>pattern</module>
         <module>pl-core</module>
+        <module>hutool</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -57,7 +58,7 @@
         <commons.codec.version>1.9</commons.codec.version>
         <commons.net.version>3.3</commons.net.version>
         <commons.lang3.version>1.1.3</commons.lang3.version>
-        <aspectj.version>1.6.12</aspectj.version>
+        <aspectj.version>1.8.9</aspectj.version>
         <netty.version>4.0.18.Final</netty.version>
         <hibernate.validator.version>5.1.1.Final</hibernate.validator.version>
     </properties>
