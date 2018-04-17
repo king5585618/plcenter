@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+
+	">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jedis.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="genericObjectPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig" >
+        <property name="maxWaitMillis" value="${redis.maxWaitMills:5000}" />
+        <property name="maxTotal" value="${reids.maxTotal:100}" />
+        <property name="minIdle" value="8" />
+        <property name="maxIdle" value="${redis.maxIdle:30}" />
+    </bean>
+
+    <bean id="jedisCluster" class="com.kakarot.plcenter.jedis.JedisFactory">
+        <property name="timeout" value="${redis.client.timeout:5000}" />
+        <property name="maxRedirections" value="6" />
+        <property name="genericObjectPoolConfig" ref="genericObjectPoolConfig" />
+    </bean>
+
+</beans>

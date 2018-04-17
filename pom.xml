@@ -26,6 +26,8 @@
         <module>pattern</module>
         <module>pl-core</module>
         <module>hutool</module>
+        <module>jedis</module>
+        <module>test</module>
     </modules>
     <packaging>pom</packaging>
 
