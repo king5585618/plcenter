@@ -2,8 +2,6 @@ package com.kakarot.plcenter;
 
 import com.kakarot.plcenter.config.CoreConfig;
 import com.kakarot.plcenter.config.MvcConfig;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 //import com.kakarot.plcenter.config.ShiroConfig;
@@ -13,16 +11,14 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  */
 public class DispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-    private Log log = LogFactory.getLog(DispatcherServletInitializer.class);
-
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[]{
                 CoreConfig.class,
                 MvcConfig.class,
-                DatasourceConfig.class,
-                JobConfig2.class,
-                DubboConfig.class,
+//                DatasourceConfig.class,
+//                JobConfig2.class,
+//                DubboConfig.class,
 //                TaskConfig.class
 //                JobConfig.class
 //                ShiroConfig.class
