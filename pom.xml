@@ -28,6 +28,7 @@
         <module>hutool</module>
         <module>jedis</module>
         <module>test</module>
+        <module>spi</module>
     </modules>
     <packaging>pom</packaging>
 
