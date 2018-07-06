@@ -4,13 +4,17 @@ package com.kakarot.plcenter.core;
  * @author jinzj
  * @since v4.0.1
  */
-public class JVMTest {
+public class  JVMTest {
 
     private Integer i = 0;
 
     public void a() {
         i++;
         a();
+    }
+
+    public synchronized static void b() {
+
     }
 
     public static void main(String[] args) {
