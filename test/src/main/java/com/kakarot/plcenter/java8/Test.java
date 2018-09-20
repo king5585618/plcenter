@@ -12,14 +12,7 @@ import java.util.stream.Collectors;
 public class Test {
 
     public static List<Apple> filterApples(List<Apple> list, Predicate<Apple> p){
-//        List<Apple> newList = new ArrayList<>();
-//        for(Apple apple: list) {
-//            if(p.test(apple)){
-//                newList.add(apple);
-//            }
-//        }
         return list.stream().filter(apple->p.test(apple)).collect(Collectors.toList());
-//        return newList;
     }
 
     public static void main(String[] args) {

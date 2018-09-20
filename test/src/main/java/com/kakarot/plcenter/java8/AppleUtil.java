@@ -7,7 +7,9 @@ package com.kakarot.plcenter.java8;
 public class AppleUtil {
 
     public static boolean isGreen(Apple apple){
-        if("green".equals(apple.getColor())){
+        String s = "green";
+        //noinspection AlibabaUndefineMagicConstant
+        if(s.equals(apple.getColor())){
             return true;
         }
         return false;
